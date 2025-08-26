@@ -4,7 +4,7 @@ const {
   findUserByUsername,
   createUser,
   assignRoleToUser,
-} = require('../model/userModel');
+} = require('../dal/userDal');
 
 const handleNewUser = async (req, res) => {
   const { user, pwd } = req.body;

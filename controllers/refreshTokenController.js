@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { findUserByRefreshToken, getUserRoles } = require('../model/userModel');
+const { findUserByRefreshToken, getUserRoles } = require('../dal/userDal');
 require('dotenv').config();
 
 const handleRefreshToken = async (req, res) => {

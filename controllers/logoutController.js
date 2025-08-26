@@ -1,7 +1,7 @@
 const {
   findUserByRefreshToken,
   deleteRefreshToken,
-} = require('../model/userModel');
+} = require('../dal/userDal');
 
 const handleLogout = async (req, res) => {
   // on client also delete the accessToken

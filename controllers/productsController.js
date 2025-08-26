@@ -1,7 +1,7 @@
-const productModel = require('../model/productModel');
+const productDal = require('../dal/productDal');
 
 const getAllProducts = async (req, res) => {
-  const products = await productModel.getAllProducts();
+  const products = await productDal.getAllProducts();
   res.json(products);
 };
 
@@ -14,7 +14,7 @@ const createNewProduct = async (req, res) => {
       .json({ message: 'First and last names are required' });
   }
 
-  const newProduct = await productModel.createProduct(name, price);
+  const newProduct = await productDal.createProduct(name, price);
   res.status(201).json(newProduct);
 };
 
@@ -27,7 +27,7 @@ const updateProduct = async (req, res) => {
       .json({ message: 'product id, name and price are required' });
   }
 
-  const existingProduct = await productModel.getProductById(id);
+  const existingProduct = await productDal.getProductById(id);
 
   if (!existingProduct) {
     return res
@@ -35,14 +35,14 @@ const updateProduct = async (req, res) => {
       .json({ message: `Product with ID ${req.body.id} not found` });
   }
 
-  const updatedProduct = await productModel.updateProduct(id, name, price);
+  const updatedProduct = await productDal.updateProduct(id, name, price);
 
   res.json(updatedProduct);
 };
 
 const deleteProduct = async (req, res) => {
   const { id } = req.body;
-  const existingProduct = await productModel.getProductById(id);
+  const existingProduct = await productDal.getProductById(id);
 
   if (!existingProduct) {
     return res
@@ -50,16 +50,16 @@ const deleteProduct = async (req, res) => {
       .json({ message: `Product with ID ${req.body.id} not found` });
   }
 
-  await productModel.deleteProduct(id);
+  await productDal.deleteProduct(id);
 
-  const products = await productModel.getAllProducts();
+  const products = await productDal.getAllProducts();
 
   res.json(products);
 };
 
 const getProduct = async (req, res) => {
   const { id } = req.params;
-  const product = await productModel.getProductById(id);
+  const product = await productDal.getProductById(id);
 
   if (!product) {
     return res

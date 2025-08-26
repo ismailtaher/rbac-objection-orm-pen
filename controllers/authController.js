@@ -5,7 +5,7 @@ const {
   findUserByUsername,
   getUserRoles,
   assignRefreshTokenToUser,
-} = require('../model/userModel');
+} = require('../dal/userDal');
 
 const handleLogin = async (req, res) => {
   const { user, pwd } = req.body;
