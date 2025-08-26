@@ -1,6 +1,6 @@
 const { Model } = require('objection');
 const User = require('./User');
-const Permission = require('./Permissions');
+const Permission = require('./Permission');
 
 class Role extends Model {
   static get tableName() {
