@@ -1,4 +1,4 @@
-const knex = require('../db/db');
+const Role = require('../db/models/Role');
 
 const verifyPermissions = () => {
   return async (req, res, next) => {
@@ -10,12 +10,17 @@ const verifyPermissions = () => {
         return res.sendStatus(403); // No roles means no access
       }
 
-      const permission = await knex('role_permissions AS rp')
-        .distinct('p.name as permission')
-        .join('permissions as p', 'rp.permission_id', 'p.id')
-        .whereIn('rp.role_id', roles);
+      // old knex query
+      // const permission = await knex('role_permissions AS rp')
+      //   .distinct('p.name as permission')
+      //   .join('permissions as p', 'rp.permission_id', 'p.id')
+      //   .whereIn('rp.role_id', roles);
 
-      const permArray = permission.map((perm) => perm.permission);
+      const permission = await Role.relatedQuery('permissions')
+        .for(roles)
+        .distinct('permissions.name');
+
+      const permArray = permission.map((perm) => perm.name);
 
       console.log(`User: ${req.user} Method: ${method}`);
       console.log(`User permissions:`, permArray);

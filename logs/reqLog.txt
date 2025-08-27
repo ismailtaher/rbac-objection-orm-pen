@@ -371,3 +371,14 @@
 20250827	17:20:54	cdfc0bf0-76d2-4ac8-b62b-0a0243dc484e	POST	undefined	/auth 
 20250827	17:20:55	01ac5ece-6eed-44b2-af44-352530313c41	GET	undefined	/refresh 
 20250827	19:04:33	83cbccf2-1c40-4c0c-be3b-e0b70e57ab6c	POST	undefined	/auth 
+20250827	19:43:36	7b672857-aa3b-4bff-bf69-f6c0b344a585	GET	undefined	/refresh 
+20250827	19:43:49	45e18832-94a9-4a34-baf0-5a123b3e5df9	GET	undefined	/products 
+20250827	19:44:50	398026b0-0f6a-41f9-8f97-80a103d2ce1c	GET	undefined	/products 
+20250827	19:51:47	5d65e165-cc9d-456c-a02d-de2a62e07900	GET	undefined	/refresh 
+20250827	19:51:59	be7f6d16-5f9c-4390-aefd-93aa58c1b2d4	POST	undefined	/products 
+20250827	19:52:05	694a1109-b941-4caa-8cf8-d2236925bb80	GET	undefined	/products 
+20250827	19:52:09	45df5dd8-ab9d-42b5-8ad2-61c3385a3de5	GET	undefined	/products 
+20250827	19:52:20	2a2d478b-232e-496d-8e83-dd4240003838	PUT	undefined	/products 
+20250827	19:52:25	5fa7306f-a0b8-46c7-a4d1-bd64a633ce22	GET	undefined	/products 
+20250827	19:52:45	b95984e0-2a52-4771-919c-c9037806d5d5	DELETE	undefined	/products 
+20250827	19:52:52	afb3c4d3-8c80-4d45-9c74-c1dad31e77a5	GET	undefined	/products/3 
