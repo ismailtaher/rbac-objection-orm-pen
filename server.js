@@ -52,6 +52,8 @@ app.use('/logout', require('./routes/logout'));
 app.use(verifyJWT);
 // protected route placed below our verifyJWT middleware
 app.use('/products', require('./routes/api/products'));
+// admin dash
+app.use('/profile', require('./routes/profile'));
 
 // catch all / default route
 app.use((req, res) => {

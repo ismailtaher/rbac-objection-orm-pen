@@ -5,6 +5,8 @@ const verifyPermissions = () => {
     try {
       const roles = req.roles;
       const method = req.method.toUpperCase();
+      const baseUrl = req.baseUrl;
+      console.log('API Name:', baseUrl);
 
       if (!Array.isArray(roles) || roles.length === 0) {
         return res.sendStatus(403); // No roles means no access

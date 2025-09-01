@@ -39,6 +39,22 @@ const deleteRefreshToken = async (userId) => {
   await User.query().findById(userId).patch({ refresh_token: null });
 };
 
+// profileController logic
+const getUserWithRolesAndPermissions = async (userId) => {
+  const user = await User.query()
+    .findById(userId)
+    .select('id', 'username')
+    .withGraphFetched('[roles.permissions]')
+    .modifyGraph('roles', (builder) => {
+      builder.select('name');
+    })
+    .modifyGraph('roles.permissions', (builder) => {
+      builder.select('name');
+    });
+
+  return user;
+};
+
 module.exports = {
   findUserByUsername,
   createUser,
@@ -47,4 +63,5 @@ module.exports = {
   assignRefreshTokenToUser,
   findUserByRefreshToken,
   deleteRefreshToken,
+  getUserWithRolesAndPermissions,
 };

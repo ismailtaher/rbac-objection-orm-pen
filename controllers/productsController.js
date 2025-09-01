@@ -9,9 +9,7 @@ const createNewProduct = async (req, res) => {
   const { name, price } = req.body;
 
   if (!name || !price) {
-    return res
-      .status(400)
-      .json({ message: 'First and last names are required' });
+    return res.status(400).json({ message: 'name and price are required' });
   }
 
   const newProduct = await productDal.createProduct(name, price);
